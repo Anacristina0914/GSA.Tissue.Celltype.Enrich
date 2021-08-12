@@ -39,7 +39,7 @@ GSA.Tissue.Celltype.Enrich::MAGMA_GSA(tt_filename = tt_human_SomaAxon, analysis_
 ```
 ### Tissue Enrichment in GWAS summary statistics
 ``` R
-GTEx data v8 (https://storage.googleapis.com/gtex_analysis_v8/rna_seq_data/GTEx_Analysis_2017-06-05_v8_RNASeQCv1.1.9_gene_tpm.gct.gz) was retrieved.
+GTEx data v8 ("https://storage.googleapis.com/gtex_analysis_v8/rna_seq_data/GTEx_Analysis_2017-06-05_v8_RNASeQCv1.1.9_gene_tpm.gct.gz") was retrieved.
 
 ```
 
