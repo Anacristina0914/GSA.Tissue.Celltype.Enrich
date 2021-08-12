@@ -1,0 +1,13 @@
+Package: GSA.Tissue.Celltype.Enrich
+Type: Package
+Title: Carry out Gene Set, Tissue and Celltype enrichment analaysis. 
+Version: 1.0.0
+Date: 2021-08-05
+Author: Ana Cristina Gonzalez Sanchez
+Maintainer: Ana Cristina Gonzalez Sanchez <ana.gonzalezsanchez@studio.unibo.it>
+Description: Carry out gene set enrichment analysis, tissue enrichment analysis and celltype enrichment analysis using     as reference GWAS summary statistics and tissue expression/single cell expression data. Some formulas in this package    were adapted from NathanSkene/ALS_Human_EWCE, neurogenomics/EWCE, NathanSkene/MAGMA_Celltyping and jbryois/scRNA_disease.
+License: GPL(>=2)
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.1
+SystemRequirements: A system installation of MAGMA (https://ctg.cncr.nl/software/magma) is required.
