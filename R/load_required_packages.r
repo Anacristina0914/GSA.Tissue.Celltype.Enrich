@@ -1,4 +1,4 @@
-#' Load required packages to run GSA_Tissue_Celltype_Enrichment. 
+#' Load required packages to run GSA_Tissue_Celltype_Enrichment.
 #'
 #' \code{load_required_libraries} Load required packages to run GSA_Tissue_Celltype_Enrichment, if packages are not installed, the code installs them before loading them.
 #'
@@ -6,7 +6,7 @@
 #' load_required_libraries()
 
 load_required_libraries <- function(){
-	required_packages_library=c("devtools","R.utils","tidyr","limma","RNOmni")
+	required_packages_library=c("devtools","R.utils","tidyr","limma","RNOmni","dplyr","tidyverse")
 	required_packages_github=c("MAGMA.Celltyping","One2One","EWCE")
 	missing_index_library <- which(!required_packages_library %in% row.names(installed.packages()),TRUE)
 	missing_index_github <- which(!required_packages_github %in% row.names(installed.packages()),TRUE)
@@ -16,7 +16,7 @@ load_required_libraries <- function(){
 	library(devtools)
 	for (j in missing_index_github){
 		if(required_packages_github[j]=="MAGMA.Celltyping"){
-		devtools::install_github("NathanSkene/MAGMA_Celltyping")	
+		devtools::install_github("NathanSkene/MAGMA_Celltyping")
 		} else if(required_packages_github[j]=="One2One"){
 		devtools::install_github("NathanSkene/One2One")
 		} else{
@@ -30,4 +30,6 @@ load_required_libraries <- function(){
 	library(limma)
 	library(EWCE)
 	library(RNOmni)
+	library(dplyr)
+	library(tidyverse)
 }
