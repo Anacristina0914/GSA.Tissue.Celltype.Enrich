@@ -1,12 +1,13 @@
 # GSA.Tissue.Celltype.Enrich
 ----------------------------
-Ana Cristina Gonzalez Sanchez
+Ana Cristina Gonzalez Sanchez<br/>
 [email](mailto:ana.gonzalezsanchez@studio.unibo.it)
  
 - [Introduction](#introduction)
 - [Installation](#installation)
 - [Usage](#usage)
 	- [GSA Enrichment](#GSA-Enrichment-for-up-and-down-regulated-genes-in-GTEx-data)
+	- [Tissue Enrichment](#Tissue-Enrichment-in-GWAS-summary-statistics)
 
 ## Introduction
 GSA_Tissue_Celltype_Enrich is an R library intented to carry out in an easy manner Tissue enrichment analysis using data from GTEX, Celltype Enrichment Analysis using MAGMA-Celltyping or Geneset Enrichment Analysis for list of genes coming from differential expression analysis. Over representation of list of genes is tested in GWAS summary statistics. 
