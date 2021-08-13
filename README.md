@@ -6,8 +6,8 @@ Ana Cristina Gonzalez Sanchez<br/>
 - [Introduction](#introduction)
 - [Installation](#installation)
 - [Usage](#usage)
-	- [GSA Enrichment](#GSA-Enrichment-for-up-and-down-regulated-genes-in-GTEx-data)
 	- [GWAS formatting](#GWAS-Summary-Statistics-Formatting)
+	- [GSA Enrichment](#GSA-Enrichment-for-up-and-down-regulated-genes-in-GTEx-data)
 	- [Tissue Enrichment](#Tissue-Enrichment-in-GWAS-summary-statistics)
 
 ## Introduction
@@ -28,6 +28,17 @@ library(GSA_Tissue_Celltype_Enrich)
 
 ## Usage
 
+### GWAS Summary Statistics Formatting
+GWAS summary statistics must be formatted as specified in the [MAGMA](https://ctg.cncr.nl/software/MAGMA/doc/manual_v1.09.pdf) guidance. Briefly, the first three columns have to correspond to the SNP, CHR and BP (see example below):
+
+|SNP |CHR |BP |P |
+|:-:|:-:|:-:|:-:|
+|rs1345 |2 |100123 |0.01 |
+|rs18667 |3 |30566921 |0.5611 |
+|rs145 |16 |9992021 |0.173 |
+
+This can be achieved either manually or using the formula format_sumstats_for_magma.r from the [MAGMA_Celltyping](https://github.com/NathanSkene/MAGMA_Celltyping) package.
+
 ### GSA Enrichment for up and down regulated genes in GTEx data
 ``` R
 # Load required libraries for the package
@@ -42,14 +53,6 @@ Human_SomaAxon_annot <- GSA.Tissue.Celltype.Enrich::load_GTEx_annot_conditional(
 # Run Differential Expression analysis 
 tt_human_SomaAxon <- GSA.Tissue.Celltype.Enrich::run_diffExp_analysis(annot = Human_SomaAxon_annot, data = Human_SomaAxon_data, expr_path = "/Soma_Axon_RNA-seq/", analysis_type = "D_Soma-Axon", species = "human")
 ```
-### GWAS Summary Statistics Formatting
-GWAS summary statistics must be formatted as specified in the [MAGMA](https://ctg.cncr.nl/software/MAGMA/doc/manual_v1.09.pdf) guidance. Briefly, the first three columns have to correspond to the SNP, CHR and BP (see example below):
-
-|SNP |CHR |BP |P |
-|:-:|:-:|:-:|:-:|
-|rs1345 |2 |100123 |0.01 |
-|rs18667 |3 |30566921 |0.5611 |
-|rs145 |16 |9992021 |0.173 |
 
 This can be achieved either manually or using the formula format_sumstats_for_magma.r from the [MAGMA_Celltyping](https://github.com/NathanSkene/MAGMA_Celltyping) package.
 
