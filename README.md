@@ -1,7 +1,8 @@
 # GSA.Tissue.Celltype.Enrich
-----------------------------
+
 Ana Cristina Gonzalez Sanchez<br/>
-[email](mailto:ana.gonzalezsanchez@studio.unibo.it)
+University of Bologna / Karolinska Institutet<br/>
+[Contact](mailto:ana.gonzalezsanchez@studio.unibo.it)
  
 - [Introduction](#introduction)
 - [Installation](#installation)
@@ -52,9 +53,7 @@ Human_SomaAxon_annot <- GSA.Tissue.Celltype.Enrich::load_GTEx_annot_conditional(
 
 # Run Differential Expression analysis 
 tt_human_SomaAxon <- GSA.Tissue.Celltype.Enrich::run_diffExp_analysis(annot = Human_SomaAxon_annot, data = Human_SomaAxon_data, expr_path = "/Soma_Axon_RNA-seq/", analysis_type = "D_Soma-Axon", species = "human")
-```
 
-``` R
 # Map snps to genes and generate gene level p-value from summary statistics
 genes.raw_path <- GSA.Tissue.Celltype.Enrich::map_snps_to_genes(gwas_path = "/ALS_sumstats.txt", N=NULL, genloc_filepath = "/genloc_files/NCBI37.3.gene.loc", genome_ref_path = "/g1000/g1000_eur",analysis_type = "D_Soma-Axon", species = "human")
 
