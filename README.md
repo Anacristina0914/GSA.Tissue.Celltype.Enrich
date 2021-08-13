@@ -7,6 +7,7 @@ Ana Cristina Gonzalez Sanchez<br/>
 - [Installation](#installation)
 - [Usage](#usage)
 	- [GSA Enrichment](#GSA-Enrichment-for-up-and-down-regulated-genes-in-GTEx-data)
+	- [GWAS formatting](#GWAS-Summary-Statistics-Formatting)
 	- [Tissue Enrichment](#Tissue-Enrichment-in-GWAS-summary-statistics)
 
 ## Introduction
@@ -41,6 +42,7 @@ Human_SomaAxon_annot <- GSA.Tissue.Celltype.Enrich::load_GTEx_annot_conditional(
 # Run Differential Expression analysis 
 tt_human_SomaAxon <- GSA.Tissue.Celltype.Enrich::run_diffExp_analysis(annot = Human_SomaAxon_annot, data = Human_SomaAxon_data, expr_path = "/Soma_Axon_RNA-seq/", analysis_type = "D_Soma-Axon", species = "human")
 ```
+### GWAS Summary Statistics Formatting
 GWAS summary statistics must be formatted as specified in the [MAGMA](https://ctg.cncr.nl/software/MAGMA/doc/manual_v1.09.pdf) guidance. Briefly, the first three columns have to correspond to the SNP, CHR and BP (see example below):
 
 |SNP |CHR |BP |P |
