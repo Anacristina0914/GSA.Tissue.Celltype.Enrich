@@ -34,7 +34,7 @@ tt_human_SomaAxon <- GSA.Tissue.Celltype.Enrich::run_diffExp_analysis(annot = Hu
 GWAS summary statistics must be formatted as specified in the [MAGMA](https://ctg.cncr.nl/software/MAGMA/doc/manual_v1.09.pdf) guidance. Briefly, the first three columns have to correspond to the SNP, CHR and BP (see example below):
 
 |SNP |CHR |BP |P |
---- --- --- ---
+|---|---|---|---|
 |rs1345 |2 |100123 |0.01 |
 --- --- --- ---
 |rs18667 |3 |30566921 |0.5611 |
