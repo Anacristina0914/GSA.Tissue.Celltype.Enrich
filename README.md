@@ -1,7 +1,7 @@
 # GSA.Tissue.Celltype.Enrich
 ----------------------------
 Ana Cristina Gonzalez Sanchez
-[email](mailto: ana.gonzalezsanchez@studio.unibo.it)
+[mailto](mailto:ana.gonzalezsanchez@studio.unibo.it)
  
 - [Introduction](#introduction)
 - [Installation](#installation)
