@@ -36,9 +36,7 @@ GWAS summary statistics must be formatted as specified in the [MAGMA](https://ct
 |SNP |CHR |BP |P |
 |---|---|---|---|
 |rs1345 |2 |100123 |0.01 |
-|---|---|---|---|
 |rs18667 |3 |30566921 |0.5611 |
---- --- --- ---
 |rs145 |16 |9992021 |0.173 |
 
 This can be achieved either manually or using the formula format_sumstats_for_magma.r from the [MAGMA_Celltyping](https://github.com/NathanSkene/MAGMA_Celltyping) package.
