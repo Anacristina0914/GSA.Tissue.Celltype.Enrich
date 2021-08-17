@@ -62,7 +62,7 @@ GSA.Tissue.Celltype.Enrich::MAGMA_GSA(tt_filename = tt_human_SomaAxon, analysis_
 ```
 ### Tissue Enrichment in GWAS summary statistics
 
-GTEx analysis v8 2017-06-05 gene-level median TPM by tissue dataset was retrieved from the [GTEx database](https://gtexportal.org/home/datasets) and further processed as described in Bryois et al. 2020[[^fn1] and its corresponding github repository [scRNA_disease](https://github.com/jbryois/scRNA_disease/blob/master/Code_Paper/Code_GTEx/get_GTEx_input.md). The 
+GTEx analysis v8 2017-06-05 gene-level median TPM by tissue dataset was retrieved from the [GTEx database](https://gtexportal.org/home/datasets) and further processed as described in Bryois et al. 2020[^fn1] and its corresponding github repository [scRNA_disease](https://github.com/jbryois/scRNA_disease/blob/master/Code_Paper/Code_GTEx/get_GTEx_input.md). The 
 ``` R
 ```
 
@@ -75,3 +75,5 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
+Hello
+
