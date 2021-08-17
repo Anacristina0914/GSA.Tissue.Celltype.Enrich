@@ -61,13 +61,15 @@ genes.raw_path <- GSA.Tissue.Celltype.Enrich::map_snps_to_genes(gwas_path = "/AL
 GSA.Tissue.Celltype.Enrich::MAGMA_GSA(tt_filename = tt_human_SomaAxon, analysis_type = "D_Soma-Axon", genes.raw_path = genes.raw_path, species = "human", gene_n = 250)
 ```
 ### Tissue Enrichment in GWAS summary statistics
-``` R
-[GTEx_data_v8](https://storage.googleapis.com/gtex_analysis_v8/rna_seq_data/GTEx_Analysis_2017-06-05_v8_RNASeQCv1.1.9_gene_tpm.gct.gz) was retrieved.
 
+GTEx analysis v8 2017-06-05 gene-level median TPM by tissue dataset was retrieved from the [GTEx database](https://gtexportal.org/home/datasets) and further processed as described in <i> Genetic identification of cell types underlying brain complex traits yields insights into the etiology of Parkinson’s disease</i> [scRNA_disease](https://github.com/jbryois/scRNA_disease/blob/master/Code_Paper/Code_GTEx/get_GTEx_input.md) github repo. The 
+``` R
 ```
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## References
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
