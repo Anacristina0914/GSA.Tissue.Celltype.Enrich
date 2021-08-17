@@ -62,7 +62,7 @@ GSA.Tissue.Celltype.Enrich::MAGMA_GSA(tt_filename = tt_human_SomaAxon, analysis_
 ```
 ### Tissue Enrichment in GWAS summary statistics
 
-GTEx analysis v8 2017-06-05 gene-level median TPM by tissue dataset was retrieved from the [GTEx database](https://gtexportal.org/home/datasets) and further processed as described in <i> Genetic identification of cell types underlying brain complex traits yields insights into the etiology of Parkinson’s disease</i> [scRNA_disease](https://github.com/jbryois/scRNA_disease/blob/master/Code_Paper/Code_GTEx/get_GTEx_input.md) github repo. The 
+GTEx analysis v8 2017-06-05 gene-level median TPM by tissue dataset was retrieved from the [GTEx database](https://gtexportal.org/home/datasets) and further processed as described in Bryois et al. 2020[[^fn1] and its corresponding github repository [scRNA_disease](https://github.com/jbryois/scRNA_disease/blob/master/Code_Paper/Code_GTEx/get_GTEx_input.md). The 
 ``` R
 ```
 
@@ -70,6 +70,8 @@ GTEx analysis v8 2017-06-05 gene-level median TPM by tissue dataset was retrieve
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## References
+[^fn1]: Bryois, J., Skene, N. G., Hansen, T. F., Kogelman, L. J., Watson, H. J., Liu, Z., ... & Sullivan, P. F. (2020). Genetic identification of cell types underlying brain complex traits yields insights into the etiology of Parkinson’s disease. Nature genetics, 52(5), 482-493.
+
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
