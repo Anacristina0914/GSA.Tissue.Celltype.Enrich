@@ -11,6 +11,7 @@ University of Bologna / Karolinska Institutet<br/>
 	- [Running GSA](#GSA-Enrichment-for-up-and-down-regulated-genes-in-GTEx-data)
 - [Tissue Enrichment Analysis](#Tissue-Enrichment-Analysis)
 	- [Dataset preparation](#Tissue-Dataset-Preparation)
+	- [Genloc & GWAS preparation](#GWAS-Summary-Statistics-and-Genloc-file-Prepation)
 ## Introduction
 GSA_Tissue_Celltype_Enrich is an R library intented to carry out in an easy manner Tissue enrichment analysis using data from GTEX, Celltype Enrichment Analysis using MAGMA-Celltyping or Geneset Enrichment Analysis for list of genes coming from differential expression analysis. Over representation of list of genes is tested in GWAS summary statistics. 
 
@@ -62,8 +63,12 @@ GSA.Tissue.Celltype.Enrich::MAGMA_GSA(tt_filename = tt_human_SomaAxon, analysis_
 ```
 ## Tissue Enrichment Analysis
 ### Tissue Dataset Preparation
-GTEx analysis v8 2017-06-05 gene-level median TPM by tissue dataset was retrieved from the [GTEx database](https://gtexportal.org/home/datasets) and further processed as described in Bryois et al. 2020[[1]](#1) and its corresponding github repository [jbryois/scRNA_disease](https://github.com/jbryois/scRNA_disease/blob/master/Code_Paper/Code_GTEx/get_GTEx_input.md). The final file used for the tissue enrichment analysis ([top10.txt](https://github.com/jbryois/scRNA_disease/blob/master/Code_Paper/Code_GTEx/MAGMA/top10.txt)) contains the 10% most specific genes by tissue, where specificity is calculated dividiving the expression of each gene in a tissue divided by total expression of that gene in all tissues.  
+GTEx analysis v8 2017-06-05 gene-level median TPM by tissue dataset was retrieved from the [GTEx database](https://gtexportal.org/home/datasets) and further processed as described in Bryois et al. 2020[[1]](#1) and its corresponding github repository [jbryois/scRNA_disease](https://github.com/jbryois/scRNA_disease/blob/master/Code_Paper/Code_GTEx/get_GTEx_input.md). The final file used for the tissue enrichment analysis ([top10.txt](https://github.com/jbryois/scRNA_disease/blob/master/Code_Paper/Code_GTEx/MAGMA/top10.txt)) contains the 10% most specific genes by tissue, where specificity is calculated dividiving the expression of each gene in a tissue divided by total expression of that gene in all tissues.
+
+### GWAS Summary Statistics and Genloc file Prepation
+  
 ``` R
+
 ```
 
 ## Contributing
