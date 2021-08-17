@@ -6,11 +6,11 @@ University of Bologna / Karolinska Institutet<br/>
  
 - [Introduction](#introduction)
 - [Installation](#installation)
-- [Usage](#usage)
+- [GSA](#Gene-Set-Enrichment-Analysis-(GSA))
 	- [GWAS formatting](#GWAS-Summary-Statistics-Formatting)
-	- [GSA Enrichment](#GSA-Enrichment-for-up-and-down-regulated-genes-in-GTEx-data)
-	- [Tissue Enrichment](#Tissue-Enrichment-in-GWAS-summary-statistics)
-
+	- [Running GSA](#GSA-Enrichment-for-up-and-down-regulated-genes-in-GTEx-data)
+- [Tissue Enrichment](#Tissue-Enrichment-Analysis)
+	- [Dataset preparation](#Tissue-Dataset-Preparation)
 ## Introduction
 GSA_Tissue_Celltype_Enrich is an R library intented to carry out in an easy manner Tissue enrichment analysis using data from GTEX, Celltype Enrichment Analysis using MAGMA-Celltyping or Geneset Enrichment Analysis for list of genes coming from differential expression analysis. Over representation of list of genes is tested in GWAS summary statistics. 
 
@@ -27,7 +27,7 @@ if(!"GSA_Tissue_Celltype_Enrich" %in% row.names(installed.packages())){
 library(GSA_Tissue_Celltype_Enrich) 
 ```
 
-## Usage
+## Gene Set Enrichment Analysis (GSA)
 
 ### GWAS Summary Statistics Formatting
 GWAS summary statistics must be formatted as specified in the [MAGMA](https://ctg.cncr.nl/software/MAGMA/doc/manual_v1.09.pdf) guidance. Briefly, the first three columns have to correspond to the SNP, CHR and BP (see example below):
@@ -60,9 +60,9 @@ genes.raw_path <- GSA.Tissue.Celltype.Enrich::map_snps_to_genes(gwas_path = "/AL
 # Run Gene Set Analysis (GSA) using MAGMA and up/down regulated genes from expression data and GWAS summary statistics.
 GSA.Tissue.Celltype.Enrich::MAGMA_GSA(tt_filename = tt_human_SomaAxon, analysis_type = "D_Soma-Axon", genes.raw_path = genes.raw_path, species = "human", gene_n = 250)
 ```
-### Tissue Enrichment in GWAS summary statistics
-
-GTEx analysis v8 2017-06-05 gene-level median TPM by tissue dataset was retrieved from the [GTEx database](https://gtexportal.org/home/datasets) and further processed as described in Bryois et al. 2020[[1]](#1) and its corresponding github repository [scRNA_disease](https://github.com/jbryois/scRNA_disease/blob/master/Code_Paper/Code_GTEx/get_GTEx_input.md). The final file used for the tissue enrichment analysis ([top10.txt](https://github.com/jbryois/scRNA_disease/blob/master/Code_Paper/Code_GTEx/MAGMA/top10.txt)) contains the 10% most specific genes by tissue, where specificity is calculated dividiving the expression of each gene in a tissue divided by the summatory of expression in all the tissues.  
+## Tissue Enrichment Analysis
+### Tissue Dataset Preparation
+GTEx analysis v8 2017-06-05 gene-level median TPM by tissue dataset was retrieved from the [GTEx database](https://gtexportal.org/home/datasets) and further processed as described in Bryois et al. 2020[[1]](#1) and its corresponding github repository [jbryois/scRNA_disease](https://github.com/jbryois/scRNA_disease/blob/master/Code_Paper/Code_GTEx/get_GTEx_input.md). The final file used for the tissue enrichment analysis ([top10.txt](https://github.com/jbryois/scRNA_disease/blob/master/Code_Paper/Code_GTEx/MAGMA/top10.txt)) contains the 10% most specific genes by tissue, where specificity is calculated dividiving the expression of each gene in a tissue divided by total expression of that gene in all tissues.  
 ``` R
 ```
 
