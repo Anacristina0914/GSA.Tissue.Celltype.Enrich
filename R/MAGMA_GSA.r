@@ -15,7 +15,7 @@
 #' MAGMA_GSA(tt_filename = tt_filename, analysis_type = "D_Soma-Axon", genes.raw_path = "/magmafiles/als.genes.raw", species = "mouse", gene_n = 250)
 #'
 MAGMA_GSA <- function(tt_filename, analysis_type, genes.raw_path, species = "mouse", gene_n){
-  if(!analysis_type %in% c("H_MN-AH","D_MN-AH","H_Soma-Axon","D_Soma-Axon","Soma_als-ctrl","Axon_als-ctrl","MN_als-ctrl","AH_als-ctrl")){stop("Incorrect analysis type specified. Analysis_type argument must be set to 'H_MN-AH','D_MN-AH','H_Soma-Axon','D_Soma-Axon','Soma_als-ctrl', or'Axon_als-ctrl'")}
+  if(!analysis_type %in% c("H_MN-AH","H_AH-MN","D_MN-AH","D_AH-MN","H_Soma-Axon","H_Axon-Soma","D_Soma-Axon","D_Axon-Soma","Soma_als-ctrl","Soma_ctrl-als","Axon_als-ctrl","Axon_ctrl-als","MN_als-ctrl","MN_ctrl-als","AH_als-ctrl","AH_ctrl-als")){stop("Incorrect analysis type specified. Analysis_type argument must be set to 'H_MN-AH','D_MN-AH','H_Soma-Axon','D_Soma-Axon','Soma_als-ctrl', or'Axon_als-ctrl'")}
   if(species=="mouse"){
 		GetDRList = sprintf("awk -F, '{print $9,$5,$6}' '%s' |sort -g -k 2 |cut -d' ' -f 1 | head -%i > Results_%s_%s/Tables/%s_downreg.txt",tt_filename,gene_n+1,analysis_type,species,gene_n)
 		system(GetDRList)
