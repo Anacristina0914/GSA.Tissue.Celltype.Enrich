@@ -1,6 +1,6 @@
 #' Run differential expression analysis for GTEx data previously loaded using load_GTEx_data_conditional.
 #'
-#' \code{run_diffExp_analysis} Runs differential expression analysis for GTEx MN-AH or Soma-Axon data.
+#' \code{run_diffExp_analysis_inverse} Runs differential expression analysis for GTEx AH-MN or Axon-Soma data.
 #'
 #' @param annot dataframe containing the annotation dataframe of the expr. data, created using load_GTEx_annot_conditional function.
 #' @param data dataframe containing expression data, loaded using the load_GTEX_data_conditional function.
