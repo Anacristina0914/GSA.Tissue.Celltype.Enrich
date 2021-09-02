@@ -25,24 +25,24 @@ run_diffExp_analysis_inverse <- function(annot, data, expr_path, analysis_type, 
 	}
 	file_name = paste("tt_",analysis_type,".csv",sep="")
 	if(analysis_type == "H_Axon-Soma" || analysis_type == "D_Axon-Soma"){
-		mod  = model.matrix(~annot$area,levels = c("Axon","Soma"))
+		mod  = model.matrix(~factor(annot$area,levels = c("Soma","Axon")))
 		colnames(mod)[2] = "Area"
 		coef = "Area"
 	} else if (analysis_type == "Axon_ctrl-als" || analysis_type == "Soma_ctrl-als"){
-		mod  = model.matrix(~annot$status,levels = c("CTRL","ALS"))
+		mod  = model.matrix(~factor(annot$status,levels = c("ALS","CTRL")))
 		colnames(mod)[2] = "Status"
 		coef = "Status"
 	} else if (analysis_type == "MN_ctrl-als" || analysis_type == "AH_ctrl-als"){
-	  mod  = model.matrix(~annot$gender+factor(annot$status,levels=c("CTRL","ALS")))
+	  mod  = model.matrix(~annot$gender+factor(annot$status,levels=c("ALS","CTRL")))
 	  colnames(mod)[2:3] = c("Gender","Status")
 	  print(mod)
 	  coef = "Status"
 	} else if ((analysis_type == "H_AH-MN" || analysis_type == "D_AH-MN") && species == "human"){
-		mod  = model.matrix(~annot$gender+factor(annot$area,levels=c("AH","MN")))
+		mod  = model.matrix(~annot$gender+factor(annot$area,levels=c("MN","AH")))
 		colnames(mod)[2:3] = c("Gender","Area")
 		coef = "Area"
 	} else{
-		mod = model.matrix(~annot$area, levels = c("AH","MN"))
+		mod = model.matrix(~factor(annot$area, levels = c("MN","AH")))
 		colnames(mod)[2] = "Area"
 		coef = "Area"
 	}
