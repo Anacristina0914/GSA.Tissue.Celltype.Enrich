@@ -14,7 +14,7 @@
 #' # Runs differential expression analysis for mouse Soma-Axon data.
 #' tt_mouse_SomaAxon <- run_diffExp_analysis(annot = annot_mouse_axon_soma, data = mouse_axon_soma, expr_path = "/Users/AnaCrisGlez/Soma_Axon_RNA-Seq/", analysis_type = "D_Axon-Soma", species = "mouse")
 #'
-run_diffExp_analysis <- function(annot, data, expr_path, analysis_type, species = "human"){
+run_diffExp_analysis_inverse <- function(annot, data, expr_path, analysis_type, species = "human"){
 	if(!analysis_type %in% c("H_AH-MN","D_AH-MN","H_Axon-Soma","D_Axon-Soma","Soma_crtl-als","Axon_ctrl-als","MN_ctrl-als","AH_ctrl-als")){stop("Incorrect analysis type specified. Analysis_type argument must be set to 'H_AH-MN','D_AH-MN','H_Axon-Soma','D_Axon-Soma','Soma_ctrl-als', or'Axon_ctrl-als'")}
 	if(!species %in% c("human","mouse")){stop("Incorrect species specified. Species must be set to either mouse or human")}
 	setwd(expr_path)
