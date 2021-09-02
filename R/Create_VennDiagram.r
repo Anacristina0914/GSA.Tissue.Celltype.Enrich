@@ -6,8 +6,10 @@
 #' @param GeneList2 A list of elements.
 #' @param varname_1 A string containing the variable name of the first variable to be displayed in the plot.
 #' @param varname_2 A string containing the variable name of the second variable to be displayed in the plot.
-#' 
-#' @return A 350x350 png image of a Venn Diagram of the elements in list1 and list2. Image is saved in the current working directory.
+#' @param height a number indicating the height of the image to be saved
+#' @param width a number indicating the width of the image to be saved
+#'
+#' @return A height x width png image of a Venn Diagram of the elements in list1 and list2. Image is saved in the current working directory.
 #'
 #' @examples
 #' list1 <- c("dog","cat","mouse","ostrich","mole")
@@ -15,7 +17,7 @@
 #' Create_VennDiagram(list1,list2,"Animals1","Animals2")
 #'
 
-Create_VennDiagram <- function(GeneList1,GeneList2,varname_1,varname_2){
+Create_VennDiagram <- function(GeneList1,GeneList2,varname_1,varname_2,height=350,width=350){
   if (!require("VennDiagram")){
     install.packages("VennDiagram")
   }
@@ -31,8 +33,8 @@ Create_VennDiagram <- function(GeneList1,GeneList2,varname_1,varname_2){
     category.names = c(varname_1,varname_2),
     filename=paste("Venn_",varname_1,varname_2,".png",sep=""),
     #Graphic parameters
-    height = 350,
-    width= 350,
+    height = height,
+    width= width,
     lwd = 2,
     lty = 'blank',
     fill = c("#B3E2CD","#FDCDAC"),
