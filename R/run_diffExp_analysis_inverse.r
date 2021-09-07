@@ -11,7 +11,7 @@
 #' @return path to the differential expression file.
 #'
 #' @examples
-#' # Runs differential expression analysis for mouse Soma-Axon data.
+#' # Runs differential expression analysis for mouse Axon-Soma data and AH-MN.
 #' tt_mouse_SomaAxon <- run_diffExp_analysis(annot = annot_mouse_axon_soma, data = mouse_axon_soma, expr_path = "/Users/AnaCrisGlez/Soma_Axon_RNA-Seq/", analysis_type = "D_Axon-Soma", species = "mouse")
 #'
 run_diffExp_analysis_inverse <- function(annot, data, expr_path, analysis_type, species = "human"){
