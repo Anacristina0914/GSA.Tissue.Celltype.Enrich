@@ -85,7 +85,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## References
 <a id="1">[1]</a>
-Murphy, A. E., & Skene, N. G. (2021). MungeSumstats: A Bioconductor package for the standardisation and quality control of many GWAS summary statistics. bioRxiv.
+Murphy, A. E., & Skene, N. G. (2021). MungeSumstats: A Bioconductor package for the standardisation and quality control of many GWAS summary statistics. bioRxiv.\
 <a id="2">[2]</a> 
 Bryois, J., Skene, N. G., Hansen, T. F., Kogelman, L. J., Watson, H. J., Liu, Z., ... & Sullivan, P. F. (2020). Genetic identification of cell types underlying brain complex traits yields insights into the etiology of Parkinson’s disease. Nature genetics, 52(5), 482-493.
 
