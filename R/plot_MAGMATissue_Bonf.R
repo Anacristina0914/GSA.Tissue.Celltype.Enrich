@@ -2,7 +2,7 @@
 #'
 #' \code{plot_MAGMATissueAnalysis_Bonf} Saves a barplot using P-value by tissue corrected using Bonferroni correction.
 #'
-#' @param file_path file path includying file name of the gsa.out tissue enrichment file. The function assumes that the file does not contain commnents and is tab-separated.
+#' @param file_path file path includying file name of the gsa.out tissue enrichment file. The function assumes that the file does not contain commnents, is tab-separated and tissues are ordered in alphabetical order, considering the brain areas first and the non-brain areas last.
 #' @param sep separator in the file, can be set to tab="\t", space=" ", etc.
 #' @param plot_name the name of the jpeg/pdf files to be created, without the extension.
 #' @param plot_maintitle the main title of the plots.
