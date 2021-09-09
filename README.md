@@ -9,7 +9,7 @@ University of Bologna / Karolinska Institutet<br/>
 - [Geneset Enrichment Analysis](#Gene-Set-Enrichment-Analysis-(GSA))
 	- [GWAS formatting](#GWAS-Summary-Statistics-Formatting)
 	- [Running GSA](#GSA-Enrichment-for-up-and-down-regulated-genes-in-GTEx-data)
-- [Tissue Enrichment Analysis](#Tissue-Enrichment-Analysis)
+	- [Trait-Tissue Association](#Trait-Tissue-Association-using-Bulk-RNA-Seq)
 	- [Dataset preparation](#Tissue-Dataset-Preparation)
 	- [Genloc & GWAS preparation](#GWAS-Summary-Statistics-and-Genloc-file-Prepation)
 ## Introduction
@@ -39,14 +39,14 @@ GWAS summary statistics must be formatted as specified in the [MAGMA](https://ct
 |rs18667 |3 |30566921 |0.5611 |
 |rs145 |16 |9992021 |0.173 |
 
-This can be achieved either manually or using the formula format_sumstats_for_magma.r from the [MAGMA_Celltyping](https://github.com/NathanSkene/MAGMA_Celltyping) package.
+This can be achieved either manually or using the [MungeSumstats](https://github.com/neurogenomics/MungeSumstats) package described in Murphy & Skene 2021[[1]](#1).
 
 ### GSA Enrichment for up and down regulated genes in GTEx data
 ``` R
 # Load required libraries for the package
 load_required_libraries()
 
-# Load GTEx gene expression data from Soma and Axon in human Motor Neurons. Only controls are loaded (C*).  
+# Load GTEx gene expression data from Soma and Axon in human Motor Neurons. Only controls are loaded (Ctrl*).  
 Human_SomaAxon_data <- GSA.Tissue.Celltype.Enrich::load_GTEx_data_conditional(path = "/Soma_Axon_RNA-Seq/GSE121069_GEO_rpkms_human.txt",pattern = "Ctrl*",sep = "\t")
 
 # Load GTEx data annotation
@@ -61,13 +61,22 @@ genes.raw_path <- GSA.Tissue.Celltype.Enrich::map_snps_to_genes(gwas_path = "/AL
 # Run Gene Set Analysis (GSA) using MAGMA and up/down regulated genes from expression data and GWAS summary statistics.
 GSA.Tissue.Celltype.Enrich::MAGMA_GSA(tt_filename = tt_human_SomaAxon, analysis_type = "D_Soma-Axon", genes.raw_path = genes.raw_path, species = "human", gene_n = 250)
 ```
-## Tissue Enrichment Analysis
-### Tissue Dataset Preparation
-GTEx analysis v8 2017-06-05 gene-level median TPM by tissue dataset was retrieved from the [GTEx database](https://gtexportal.org/home/datasets) and further processed as described in Bryois et al. 2020[[1]](#1) and its corresponding github repository [jbryois/scRNA_disease](https://github.com/jbryois/scRNA_disease/blob/master/Code_Paper/Code_GTEx/get_GTEx_input.md). The final file used for the tissue enrichment analysis ([top10.txt](https://github.com/jbryois/scRNA_disease/blob/master/Code_Paper/Code_GTEx/MAGMA/top10.txt)) contains the 10% most specific genes by tissue, where specificity is calculated dividiving the expression of each gene in a tissue divided by total expression of that gene in all tissues.
+## Trait-Tissue Association using Bulk RNA-Seq
+### Tissue Dataset Description
+GTEx analysis v8 2017-06-05 gene-level median TPM by tissue dataset was retrieved from the [GTEx database](https://gtexportal.org/home/datasets) and further processed as described in Bryois et al. 2020[[2]](#2) and its corresponding github repository [jbryois/scRNA_disease](https://github.com/jbryois/scRNA_disease/blob/master/Code_Paper/Code_GTEx/get_GTEx_input.md). Briefly, bulk mRNA-seq data from 37 (14 brain and 27 non-brain) tissues was processed to obtain the specificity associated to each gene in each of the 37 tissues by dividing the expression of each gene in a tissue by the total expression of that gene in all tissues. Then, the 10% most specific genes per tissue were obtained([top10.txt](https://github.com/jbryois/scRNA_disease/blob/master/Code_Paper/Code_GTEx/MAGMA/top10.txt)) and used to test for enrichment in genetic associations in GWAS summary statistics.
 
 ### GWAS Summary Statistics and Genloc file Prepation
+#### GWAS Summary Statistics filtering for MinAlleleFreq and MHC
+For the GWAS summary statistics, variants with MinAlleleFreq < 0.01 were filtered out, as well as the Major Histocompatibility Complex (MHC) region (chr6: 25-34Mb) as described by Bryois et. at. 2020[[2]](#2). In order to accomplish this, the filter_Sumstats_MinAF.sh script was used.  
+
+``` bash
+
+```
   
 ``` R
+exp_top10<- read_tsv("top10.txt")
+
+
 
 ```
 
@@ -75,8 +84,11 @@ GTEx analysis v8 2017-06-05 gene-level median TPM by tissue dataset was retrieve
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## References
-<a id="1">[1]</a> 
+<a id="1">[1]</a>
+Murphy, A. E., & Skene, N. G. (2021). MungeSumstats: A Bioconductor package for the standardisation and quality control of many GWAS summary statistics. bioRxiv.
+<a id="2">[2]</a> 
 Bryois, J., Skene, N. G., Hansen, T. F., Kogelman, L. J., Watson, H. J., Liu, Z., ... & Sullivan, P. F. (2020). Genetic identification of cell types underlying brain complex traits yields insights into the etiology of Parkinson’s disease. Nature genetics, 52(5), 482-493.
+
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
