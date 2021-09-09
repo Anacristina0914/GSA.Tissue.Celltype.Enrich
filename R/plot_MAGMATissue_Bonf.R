@@ -14,6 +14,7 @@
 #' @examples
 #' # Plots the tissue analysis results considering a default tab separator and default height and width.
 #' plot_MAGMATissueAnalysis_Bonf(file_path="/Users/bioinfo/tissue_analysis.gsa.out",plot_name="TissueEnrich_Results_Bonf",plot_maintitle="Tissue Enrichment Analysis MAGMA Bonf. Corrected")
+#' 
 plot_MAGMATissueAnalysis_Bonf <- function(file_path,sep='\t',plot_name='TissueEnrich_Results_Bonf',plot_maintitle='Tissue Enrichment Analysis MAGMA Bonf. Corrected',width=1000,height=800) {
 	Tissue_enrich <- read.csv(file_path,sep='\t',row.names=1)
 	#Read file and convert it into a dataframe whose row.names are equal to the gene symbols.
