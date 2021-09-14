@@ -89,6 +89,5 @@ Murphy, A. E., & Skene, N. G. (2021). MungeSumstats: A Bioconductor package for 
 <a id="2">[2]</a> 
 Bryois, J., Skene, N. G., Hansen, T. F., Kogelman, L. J., Watson, H. J., Liu, Z., ... & Sullivan, P. F. (2020). Genetic identification of cell types underlying brain complex traits yields insights into the etiology of Parkinson’s disease. Nature genetics, 52(5), 482-493.
 
-
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
