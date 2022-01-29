@@ -16,20 +16,26 @@
 #'
 MAGMA_GSA <- function(tt_filename, analysis_type, genes.raw_path, species = "mouse", gene_n){
   if(!analysis_type %in% c("H_MN-AH","H_AH-MN","D_MN-AH","D_AH-MN","H_Soma-Axon","H_Axon-Soma","D_Soma-Axon","D_Axon-Soma","Soma_als-ctrl","Soma_ctrl-als","Axon_als-ctrl","Axon_ctrl-als","MN_als-ctrl","MN_ctrl-als","AH_als-ctrl","AH_ctrl-als")){stop("Incorrect analysis type specified. Analysis_type argument must be set to 'H_MN-AH','D_MN-AH','H_Soma-Axon','D_Soma-Axon','Soma_als-ctrl', or'Axon_als-ctrl'")}
-  if(species=="mouse"){
-		GetDRList = sprintf("awk -F, '{print $9,$5,$6}' '%s' |sort -g -k 2 |cut -d' ' -f 1 | head -%i > Results_%s_%s/Tables/%s_downreg.txt",tt_filename,gene_n+1,analysis_type,species,gene_n)
-		system(GetDRList)
-		printf("file %s_downreg.txt stored in the Tables subdirectory of results. \n",gene_n)
-		GetURList = sprintf("awk -F, '{print $9,$5,$6}' '%s' |sort -g -k 2 |cut -d' ' -f 1 | sed -e 1b -e :a -e '$q;N;%i,$D;ba' > Results_%s_%s/Tables/%s_upreg.txt",tt_filename,gene_n+2,analysis_type,species,gene_n)
+  if(species=="mouse" ){
+    if(!analysis_type %in% c("H_Soma-Axon","H_Axon-Soma","D_Soma-Axon","D_Axon-Soma","Soma_als-ctrl","Soma_ctrl-als","Axon_als-ctrl","Axon_ctrl-als")){
+		  GetDRList = sprintf("awk -F, '{print $9,$5,$6}' '%s' |sort -g -k 2 |cut -d' ' -f 1 | head -%i > Results_%s_%s/Tables/%s_downreg.txt",tt_filename,gene_n+1,analysis_type,species,gene_n)
+		  GetURList = sprintf("awk -F, '{print $9,$5,$6}' '%s' |sort -g -k 2 |cut -d' ' -f 1 | sed -e 1b -e :a -e '$q;N;%i,$D;ba' > Results_%s_%s/Tables/%s_upreg.txt",tt_filename,gene_n+2,analysis_type,species,gene_n)
+		} else{
+		  GetDRList = sprintf("awk -F, '{if($3!=NA && $4!=NA) print $9,$6,$7}' '%s' |sort -g -k 2 |cut -d' ' -f 1 | head -%i > Results_%s_%s/Tables/%s_downreg.txt",tt_filename,gene_n+1,analysis_type,species,gene_n)
+		  GetURList = sprintf("awk -F, '{if($3!=NA && $4!=NA) print $9,$6,$7}' '%s' |sort -g -k 2 |cut -d' ' -f 1 | sed -e 1b -e :a -e '$q;N;%i,$D;ba' > Results_%s_%s/Tables/%s_upreg.txt",tt_filename,gene_n+2,analysis_type,species,gene_n)
+		}
+    system(GetDRList)
 		system(GetURList)
-		printf("file %s_upreg.txt stored in the Tables subdirectory of results. \n",gene_n)
 	}else{
-		GetDRList = sprintf("awk -F, '{print $8,$4,$5}' '%s' |sort -g -k 2 |cut -d' ' -f 1 | head -%i > Results_%s_%s/Tables/%s_downreg.txt",tt_filename,gene_n+1,analysis_type,species,gene_n)
+		if(!analysis_type %in% c("H_Soma-Axon","H_Axon-Soma","D_Soma-Axon","D_Axon-Soma","Soma_als-ctrl","Soma_ctrl-als","Axon_als-ctrl","Axon_ctrl-als")){
+		  GetDRList = sprintf("awk -F, '{print $8,$4,$5}' '%s' |sort -g -k 2 |cut -d' ' -f 1 | head -%i > Results_%s_%s/Tables/%s_downreg.txt",tt_filename,gene_n+1,analysis_type,species,gene_n)
+		  GetURList = sprintf("awk -F, '{print $8,$4,$5}' '%s' |sort -g -k 2 |cut -d' ' -f 1 | sed -e 1b -e :a -e '$q;N;%i,$D;ba' > Results_%s_%s/Tables/%s_upreg.txt",tt_filename,gene_n+2,analysis_type,species,gene_n)
+		}else{
+      GetDRList = sprintf("awk -F, '{if($2!=NA && $4!=NA) print $8,$5,$6}' '%s' |sort -g -k 2 |cut -d' ' -f 1 | head -%i > Results_%s_%s/Tables/%s_downreg.txt",tt_filename,gene_n+1,analysis_type,species,gene_n)
+      GetURList = sprintf("awk -F, '{if($2!=NA && $4!=NA) print $8,$5,$6}' '%s' |sort -g -k 2 |cut -d' ' -f 1 | sed -e 1b -e :a -e '$q;N;%i,$D;ba' > Results_%s_%s/Tables/%s_upreg.txt",tt_filename,gene_n+2,analysis_type,species,gene_n)
+		}
 		system(GetDRList)
-		printf("file %s_downreg.txt stored in the Tables subdirectory of results. \n",gene_n)
-		GetURList = sprintf("awk -F, '{print $8,$4,$5}' '%s' |sort -g -k 2 |cut -d' ' -f 1 | sed -e 1b -e :a -e '$q;N;%i,$D;ba' > Results_%s_%s/Tables/%s_upreg.txt",tt_filename,gene_n+2,analysis_type,species,gene_n)
 		system(GetURList)
-		printf("file %s_upreg.txt stored in the Tables subdirectory of results. \n",gene_n)
 	}
 	if(colnames(read.csv(sprintf("Results_%s_%s/Tables/%s_upreg.txt",analysis_type,species,gene_n),sep="\t"))!="HGNC.symbol"){stop("Colnames don't match required format. Check that species indicated is correct")}
 	upreg_list <- read.csv(sprintf("Results_%s_%s/Tables/%s_upreg.txt",analysis_type,species,gene_n),sep="\t")[,"HGNC.symbol"]
@@ -39,7 +45,7 @@ MAGMA_GSA <- function(tt_filename, analysis_type, genes.raw_path, species = "mou
 	write_gene_covarfile(upreg_list,sprintf("UR_%s_%s",analysis_type,species),sprintf("Results_%s_%s/Tables/GeneCovar_UR_%s_%s_%s",analysis_type,species,analysis_type,gene_n,species))
 	write_gene_covarfile(downreg_list,sprintf("DR_%s_%s",analysis_type,species),sprintf("Results_%s_%s/Tables/GeneCovar_DR_%s_%s_%s",analysis_type,species,analysis_type,gene_n,species))
 
-	#Map snp to genes and obtain gene-level p-value from summary statistics
+	# Map snp to genes and obtain gene-level p-value from summary statistics
 	genes_raw_filename <- genes.raw_path
 
 	#GSA using n up-regulated genes
@@ -50,4 +56,5 @@ MAGMA_GSA <- function(tt_filename, analysis_type, genes.raw_path, species = "mou
 	magma_geneset_DR <- sprintf("magma --gene-results '%s' --set-annot '%s' --out '%s.%s'",genes_raw_filename,sprintf("Results_%s_%s/Tables/GeneCovar_DR_%s_%s_%s",analysis_type,species,analysis_type,gene_n,species),sprintf("Results_%s_%s/Tables/DR_%s_%s",analysis_type,species,analysis_type,gene_n),species)
 	system(magma_geneset_DR)
 }
+
 
